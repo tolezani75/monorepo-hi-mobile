@@ -13,7 +13,7 @@ Este aqui é o repositório de todas as aplicações mobile da Gulf. Diferente d
 Como o projeto web, o mobile também tem seu template. Para inicializar o projeto com o template da gulf execute o seguinte comando: 
 
 ```
-npx react-native init mobile --template react-native-template-gulftech
+npx react-native init MyApp --template react-native-template-gulftech
 ```
 
 
