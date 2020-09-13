@@ -10,6 +10,12 @@ Este aqui é o repositório de todas as aplicações mobile da Gulf. Diferente d
 
 ### Obs: Quando você executar o comando npx react-native run-ios/run-android feche o metro bundler que for aberto e espere o projeto executar a build e logo após execute o comando npx react-native start. Isso deve ser feito pois o metro bundler que o react-native abre automaticamente não entende as configurações que foram feitas para o monorepo. Fique tranquilo que aqui neste README.md estará tudo explicado para você conseguir executar um projeto e trabalhar fluidamente. 
 
+Como o projeto web, o mobile também tem seu template. Para inicializar o projeto com o template da gulf execute o seguinte comando: 
+
+```
+npx react-native init mobile --template react-native-template-gulftech
+```
+
 
 
 yarn workspace @monorepo-gulf-mobile/shared add @types/react-native -D
