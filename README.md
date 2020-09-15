@@ -17,7 +17,7 @@ npx react-native init MyApp --template react-native-template-gulftech
 
 Provavelmente, quando voce estiver esperando a aplicação ser baixada e instalada, voce irá se deparar com o seguinte erro.
 
-![Image of Yaktocat]("./images/errorcocoapods.png")
+![Image of Yaktocat](https://github.com/hieducation/monorepo-gulf-mobile/blob/master/images/errorcocoapods.png)
 
 Este erro ocorre pelo seguinte fato: a pasta do CocoaPods não achou a pasta node_modules raiz. Por este fato, as dependencias do cocoa pods não podem ser instaladas assim acusando este erro. Então abaixo, vamos as configurações para podermos executar o projeto.
 
