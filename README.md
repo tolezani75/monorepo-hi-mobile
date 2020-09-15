@@ -34,7 +34,7 @@ Toda a pasta android deve sempre ter dois caminhos a mais.
 
 ![Path node modules](https://github.com/hieducation/monorepo-gulf-mobile/blob/master/images/pathnodemodules.png)
 
-A mesma coisa deve ser feita para a pasta ios. A unica coisa que irá mudar, será a linha 9 do arquivo ##### Podfile
+A mesma coisa deve ser feita para a pasta ios. A unica coisa que irá mudar, será a linha 9 do arquivo Podfile
 
 Podfile antes:
 
