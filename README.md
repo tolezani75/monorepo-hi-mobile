@@ -1,4 +1,4 @@
-# Monorepo Gulf Mobile
+# Monorepo Hi Mobile
 
 Este aqui é o repositório de todas as aplicações mobile da Hi. Siga abaixo as instruções para conhecer e configurar todo o ambiente.
 
@@ -21,10 +21,10 @@ Provavelmente, quando você estiver esperando a aplicação ser baixada e instal
 
 ![Error Cocoa Pods](https://github.com/hieducation/monorepo-gulf-mobile/blob/master/images/errorcocoapods.png)
 
-Este erro ocorre pelo seguinte fato: a pasta do CocoaPods não achou a pasta node_modules raiz. Por este fato, as dependencias do cocoa pods não podem ser instaladas assim acusando este erro. Então abaixo, vamos as configurações para podermos executar o projeto.
+Por que este erro ocorre: a pasta do CocoaPods não achou a pasta node_modules raiz. Por este fato, as dependencias do cocoa pods não podem ser instaladas assim acusando este erro. Então abaixo, vamos as configurações para podermos executar o projeto.
 
 Passo 1:
-Alterar todos os caminhos de referencia ao node_modules nas pastas android e ios. Isso, parece ser complicado, mas de fato não é. É recomendado fazer da forma mais tradicional possível para não gerar problemas de build. Na pasta que voce acabou de gerar o projeto, clique com o botão direito e faça uma pesquisa na pasta por "node_modules", logo após, a partir do arquivo build.gradle vá alterando o direcionamento dos arquivos para a pasta node_modules root.
+Alterar todos os caminhos de referência ao node_modules nas pastas android e ios. Isso, parece ser complicado, mas de fato não é. É recomendado fazer da forma mais tradicional possível para não gerar problemas de build. Na pasta que voce acabou de gerar o projeto, clique com o botão direito e faça uma pesquisa na pasta filtrando por "node_modules", logo após, a partir do arquivo build.gradle vá alterando o direcionamento dos arquivos para a pasta node_modules root.
 
 ```
 ../../
@@ -61,7 +61,7 @@ Neste monorepo, todos os projetos que são instalados poderão ser executados os
 Adicionar nova lib em um unico package
 
 ```
-yarn workspace @monorepo-gulf-mobile/shared add @types/react-native ou yarn workspace @monorepo-gulf-mobile/shared add @types/react-native -D (devDependencie)
+yarn workspace @monorepo-hi-mobile/shared add @types/react-native ou yarn workspace @monorepo-hi-mobile/shared add @types/react-native -D (devDependencie)
 ```
 
 Adicionar nova lib em todo o workspace
@@ -70,7 +70,7 @@ Adicionar nova lib em todo o workspace
 yarn workspace add @types/react-native -W ou yarn workspace add @types/react-native -WD
 ```
 
-#### Obs: sempre pense bem antes de adicionar uma lib se ela realmente vai ser daquele determinado projeto ou se poderá ser utilizada globalmente e vice-versa. Não instale libs globalmente desnecessariamente.
+#### Obs: Sempre pense bem antes de adicionar uma lib se ela realmente vai ser daquele determinado projeto ou se poderá ser utilizada globalmente e vice-versa. Não instale libs globalmente desnecessariamente.
 
 ### 4. Novos packages de compartilhamento
 
@@ -85,7 +85,7 @@ Após feito isso, execute o comando `yarn` para executar a instalação do seu p
 É implicitamente importante seguir os padrões de projeto. Independente do nome que você ao projeto, após feita a instalação mude o nome no package.json para o padrão:
 
 ```
-@monorepo-gulf-mobile/<name_of_package>
+@monorepo-hi-mobile/<name_of_package>
 ```
 
 Assim mantemos o nosso monorepo fluido, fácil de entender e padronizado.
