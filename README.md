@@ -24,6 +24,7 @@ mostrar erro
 Este erro ocorre pelo seguinte fato: a pasta do CocoaPods não achou a pasta node_modules raiz. Por este fato, as dependencias do cocoa pods não podem ser instaladas assim acusando este erro. Então abaixo, vamos as configurações para podermos executar o projeto. 
 
 passo 1: 
+Alterar todos os caminhos de referencia ao node_modules nas pastas android e ios. Isso, parece ser complicado, mas de fato não é. 
 
 
 yarn workspace @monorepo-gulf-mobile/shared add @types/react-native -D
