@@ -1,0 +1,26 @@
+{
+  "name": "monorepo-gulf-mobile",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "author": "Luis Filipe Alves de Oliveira <lfoliveira.dev@gmail.com>",
+  "description": "Monorepo de aplicações Mobile da Gulf Tech",
+  "workspaces": {
+    "nohoist": [],
+    "packages": [
+      "packages/*",
+      "packages/shared/*"
+    ]
+  },
+  "dependencies": {
+    "react-native": "*"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.13",
+    "jest": "^26.4.2",
+    "ts-jest": "^26.3.0"
+  }
+}

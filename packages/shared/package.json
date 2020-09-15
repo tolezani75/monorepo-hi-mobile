@@ -1,0 +1,9 @@
+{
+  "name": "@monorepo-gulf-mobile/shared",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "react-redux": "^7.2.1",
+    "redux": "^4.0.5"
+  }
+}
