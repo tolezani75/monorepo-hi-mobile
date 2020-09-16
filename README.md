@@ -50,7 +50,36 @@ Antes de concluir esta etapa, é bom certificar-se de que todos os path que cont
 pod install
 ```
 
-Isso fará com que todos os pods serão executados e instalados no projeto. O projeto mobile ja está complatamente configurado e pode servir de padrão para você seguir o exemplo.
+Após instalar os pods nas pasta ios, vá até o arquivo
+
+```
+metro.config.js
+```
+
+import a própria lib "path" do node
+
+```
+const path = require("path")
+```
+
+Adicione essas duas linhas de código:
+
+```
+projectRoot: path.resolve(__dirname, '.'),
+```
+
+```
+  watchFolders: [
+    path.resolve(__dirname, '../../node_modules'),
+    path.resolve(__dirname, '../shared'),
+  ],
+```
+
+Seu arquivo deve equivalente a imagem abaixo:
+
+![Metro](https://github.com/hieducation/monorepo-gulf-mobile/blob/master/images/metro.png)
+
+Após seguir todas as etapas seu projeto ja está pronto para ser executado. O projeto mobile ja está complatamente configurado e pode servir de padrão para você seguir o exemplo para os próximos.
 
 ### 2. Testes
 
