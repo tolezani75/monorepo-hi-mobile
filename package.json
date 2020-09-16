@@ -13,14 +13,30 @@
     ]
   },
   "dependencies": {
-    "react-native": "*"
+    "@react-native-community/async-storage": "^1.12.0",
+    "axios": "^0.20.0",
+    "react-native": "*",
+    "react-native-video": "^5.1.0-alpha8",
+    "react-redux": "^7.2.1",
+    "redux": "^4.0.5",
+    "redux-persist": "^6.0.0",
+    "redux-saga": "^1.1.3",
+    "@monorepo-hi-mobile/shared": "*"
   },
   "scripts": {
+    "leromundo:ios": "yarn workspace @monorepo-hi-mobile/leromundo ios",
     "test": "jest"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/runtime": "^7.8.4",
+    "@react-native-community/eslint-config": "^1.1.0",
     "@types/jest": "^26.0.13",
+    "babel-jest": "^25.1.0",
+    "eslint": "^6.5.1",
     "jest": "^26.4.2",
+    "metro-react-native-babel-preset": "^0.59.0",
+    "react-test-renderer": "16.13.1",
     "ts-jest": "^26.3.0"
   }
 }
