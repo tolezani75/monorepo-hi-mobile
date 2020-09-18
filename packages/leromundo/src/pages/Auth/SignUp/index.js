@@ -1,11 +1,9 @@
-import React from '~/pages/Auth/SignUp/react';
-import {Text, View} from 'react-native';
-
-import {Styles} from './styles';
+import React from 'react';
+import {StyleSheet, Text, View} from 'react-native';
 
 const SignUp = () => {
   return (
-    <View style={Styles.container}>
+    <View>
       <Text>SignUp</Text>
     </View>
   );

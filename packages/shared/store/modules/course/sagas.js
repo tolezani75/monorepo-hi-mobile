@@ -21,7 +21,7 @@ export function* getAllCourses({ payload }) {
 
   try {
     yield put(GeneralActions.SetLoading({ loading: true }));
-    const response = yield call(apiHiv2.get, `/courses/leromundo/all/`);
+    const response = yield call(apiHiv2.get, `/courses/${service}/all/`);
 
     yield put(GetAllCoursesSuccess(response.data.courses));
     yield put(GeneralActions.SetLoading({ loading: false }));

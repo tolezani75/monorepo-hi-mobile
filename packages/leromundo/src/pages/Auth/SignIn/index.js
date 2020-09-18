@@ -1,16 +1,12 @@
-import React from '~/pages/Auth/SignIn/react';
-import {Text, View} from 'react-native';
+import React from 'react';
+import {StyleSheet, Text, View} from 'react-native';
 
-import {Styles} from './styles';
-
-import {accountIconColor} from '~/styles/colors';
-
-const SignIn = () => {
+const SignUp = () => {
   return (
-    <View style={Styles.container}>
-      <Text>SignIn</Text>
+    <View>
+      <Text>SignIN</Text>
     </View>
   );
 };
 
-export default SignIn;
+export default SignUp;

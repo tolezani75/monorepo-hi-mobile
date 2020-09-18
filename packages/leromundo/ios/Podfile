@@ -8,8 +8,6 @@ target 'leromundo' do
 
   use_react_native!(:path => "../../../node_modules/react-native")
 
-  pod 'RNCAsyncStorage', :path => '../../../node_modules/@react-native-community/async-storage'
-  
   target 'leromundoTests' do
     inherit! :complete
     # Pods for testing

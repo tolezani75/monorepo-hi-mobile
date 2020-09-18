@@ -1,6 +1,6 @@
 import produce from "immer";
 
-import service from "@monorepo-hi-mobile/shared/services/constant";
+import { service } from "@monorepo-hi-mobile/shared/services/constant";
 
 const INITIAL_STATE = {
   courses: [],
@@ -13,7 +13,7 @@ const INITIAL_STATE = {
   dataUnit: [],
   dataDetailUnit: {},
   dataSubscription: {},
-  service,
+  service: service,
 
   challenges: [],
   campaign: "",
@@ -39,6 +39,7 @@ export default function course(state = INITIAL_STATE, action) {
       return produce(state, (draft) => {
         draft.loading = false;
         draft.courses = action.payload.courses;
+        draft.service = action.payload.service;
         draft.error = "";
       });
 
