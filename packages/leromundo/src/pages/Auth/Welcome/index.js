@@ -1,22 +1,33 @@
-import React, {useEffect} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
-import {StyleSheet, Text, View} from 'react-native';
+import React from 'react';
+import {View, ImageBackground, Platform, SafeAreaView} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
-import * as CoursesActions from '@monorepo-hi-mobile/shared/store/modules/course/actions';
+import Button from '@monorepo-hi-mobile/shared/components/Button';
+
+import {Styles} from './styles';
+
+import colors from '../../../styles/colors';
+
+import onBoardingImg from '../../../assets/images/onboarding.jpg';
 
 const Welcome = () => {
-  const dispatch = useDispatch();
-
-  const {service} = useSelector((state) => state.course);
-
-  useEffect(() => {
-    dispatch(CoursesActions.GetAllCoursesRequest(service.LEROMUNDO));
-  }, []);
-
+  const navigation = useNavigation();
   return (
-    <View>
-      <Text>Welceom</Text>
-    </View>
+    <ImageBackground style={Styles.image} source={onBoardingImg}>
+      <View
+        style={[
+          Styles.container,
+          {marginBottom: Platform.OS === 'android' && 20},
+        ]}>
+        <Button
+          background={`${colors.actionColor}`}
+          onPress={() => navigation.navigate('SignIn')}
+          title="Entrar"
+          colorTitle={`${colors.primaryColor}`}
+        />
+      </View>
+      <SafeAreaView />
+    </ImageBackground>
   );
 };
 
