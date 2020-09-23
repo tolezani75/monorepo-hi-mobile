@@ -22,14 +22,10 @@ import Main from './src/pages/Main';
 
 import '@monorepo-hi-mobile/shared/config/reactotron';
 
-import {store} from '@monorepo-hi-mobile/shared/store';
-
 const App: () => React$Node = () => {
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Provider store={store}>
-        <Main />
-      </Provider>
+      <Main />
     </View>
   );
 };

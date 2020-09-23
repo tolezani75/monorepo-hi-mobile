@@ -1,24 +1,15 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-
-import {Provider} from 'react-redux';
+import {View} from 'react-native';
 
 import {NavigationContainer} from '@react-navigation/native';
 
-import Routes from './src/navigation/routes';
-
-import Banner from '@monorepo-hi-mobile/shared/components/Banner';
-
-import {setNavigator} from '@monorepo-hi-mobile/shared/services/navigation';
-
-import {store} from '@monorepo-hi-mobile/shared/store';
+import AuthRoutes from './src/navigation/routes';
 
 const App = () => (
-  <Provider store={store}>
-    <NavigationContainer>
-      <Routes />
-    </NavigationContainer>
-  </Provider>
+  <NavigationContainer>
+    <AuthRoutes />
+  </NavigationContainer>
 );
 
 export default App;
