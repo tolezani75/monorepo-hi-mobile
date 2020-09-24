@@ -1,15 +1,17 @@
+import {enableScreens} from 'react-native-screens';
 import 'react-native-gesture-handler';
 import React from 'react';
-import {View} from 'react-native';
 
-import {NavigationContainer} from '@react-navigation/native';
+import AppProvider from '@monorepo-hi-mobile/shared/context';
 
-import AuthRoutes from './src/navigation/routes';
+import RootNavigator from './src/navigation/routes';
+
+enableScreens();
 
 const App = () => (
-  <NavigationContainer>
-    <AuthRoutes />
-  </NavigationContainer>
+  <AppProvider>
+    <RootNavigator />
+  </AppProvider>
 );
 
 export default App;

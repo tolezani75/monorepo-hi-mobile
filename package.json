@@ -13,11 +13,12 @@
     ]
   },
   "dependencies": {
+    "@monorepo-hi-mobile/shared": "*",
     "@react-native-community/async-storage": "^1.12.0",
     "axios": "^0.20.0",
     "react-native": "*",
-    "react-native-video": "^5.1.0-alpha8",
-    "@monorepo-hi-mobile/shared": "*"
+    "react-native-snap-carousel": "^3.9.1",
+    "react-native-video": "^5.1.0-alpha8"
   },
   "scripts": {
     "leromundo:ios": "yarn workspace @monorepo-hi-mobile/leromundo ios",
