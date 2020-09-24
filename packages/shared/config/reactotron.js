@@ -7,8 +7,6 @@ if (__DEV__) {
   const tron = Reactotron.setAsyncStorageHandler(AsyncStorage)
     .configure()
     .useReactNative()
-    .use(reactotronRedux())
-    .use(reactotronSaga())
     .connect();
 
   tron.clear();
