@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, View} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import {useNavigation} from '@react-navigation/native';
 
 import {Styles} from './styles';
 
@@ -13,6 +14,8 @@ import logo from '../../../assets/images/logo.png';
 import colors from '../../../styles/colors';
 
 const SignIn = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={Styles.container}>
       <Logo source={logo} />
@@ -20,6 +23,7 @@ const SignIn = () => {
       <Text>Login</Text>
 
       <Input borderBottomWidth={1} placeholder="Email" />
+
       <Input borderBottomWidth={1} placeholder="Senha" />
 
       <Button
@@ -30,12 +34,18 @@ const SignIn = () => {
       />
 
       <View style={Styles.containerResetPassword}>
-        <TouchableOpacity onPress={() => {}} style={Styles.buttonResetPassword}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('ForgotPassword')}
+          style={Styles.buttonResetPassword}>
           <Text style={Styles.textResetPassword}>Esqueceu a senha ?</Text>
         </TouchableOpacity>
       </View>
 
-      <Button borderWidth={2} title="Criar Conta" onPress={() => {}} />
+      <Button
+        borderWidth={2}
+        title="Criar Conta"
+        onPress={() => navigation.navigate('SignUp')}
+      />
     </View>
   );
 };

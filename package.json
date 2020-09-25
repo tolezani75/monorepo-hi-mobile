@@ -18,7 +18,8 @@
     "axios": "^0.20.0",
     "react-native": "*",
     "react-native-snap-carousel": "^3.9.1",
-    "react-native-video": "^5.1.0-alpha8"
+    "react-native-video": "^5.1.0-alpha8",
+    "react-native-vector-icons": "^7.1.0"
   },
   "scripts": {
     "leromundo:ios": "yarn workspace @monorepo-hi-mobile/leromundo ios",
@@ -33,6 +34,7 @@
     "eslint": "^6.5.1",
     "jest": "^26.4.2",
     "metro-react-native-babel-preset": "^0.59.0",
+    "react-native-dotenv": "^2.4.0",
     "react-test-renderer": "16.13.1",
     "ts-jest": "^26.3.0"
   }
