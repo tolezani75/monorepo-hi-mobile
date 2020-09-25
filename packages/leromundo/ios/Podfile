@@ -8,6 +8,9 @@ target 'leromundo' do
 
   use_react_native!(:path => "../../../node_modules/react-native")
 
+  pod 'RNVectorIcons', :path => '../../../node_modules/react-native-vector-icons'
+
+
   target 'leromundoTests' do
     inherit! :complete
     # Pods for testing
