@@ -17,7 +17,7 @@ const options = {
 };
 
 const AuthRoutes = () => (
-  <Auth.Navigator initialRouteName="ForgotPassword">
+  <Auth.Navigator initialRouteName="SignIn">
     <Auth.Screen options={options} name="SignUp" component={SignUp} />
 
     <Auth.Screen options={options} name="Welcome" component={Welcome} />

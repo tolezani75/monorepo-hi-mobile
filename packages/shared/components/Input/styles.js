@@ -1,11 +1,12 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
+
+const InputWidth = Dimensions.get("window").width;
 
 export const Styles = StyleSheet.create({
-  container: {
-    marginVertical: 15,
-  },
-
   input: {
-    paddingVertical: 10,
+    height: 50,
+    backgroundColor: "#fff",
+    marginVertical: 5,
+    width: InputWidth - 30,
   },
 });

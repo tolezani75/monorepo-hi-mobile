@@ -1,22 +1,22 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
+const window = Dimensions.get('window');
 
-export const Styles = StyleSheet.create({
+export const IMAGE_HEIGHT = window.width / 2;
+export const IMAGE_HEIGHT_SMALL = window.width / 7;
+
+export default StyleSheet.create({
   container: {
+    backgroundColor: '#FFF',
     flex: 1,
-    padding: 17,
-  },
-
-  containerResetPassword: {
-    marginVertical: 12,
-  },
-
-  buttonResetPassword: {
     alignItems: 'center',
     justifyContent: 'center',
-    height: 30,
   },
 
-  textResetPassword: {
-    fontSize: 15,
+  logo: {
+    height: IMAGE_HEIGHT,
+    resizeMode: 'contain',
+    marginBottom: 20,
+    padding: 10,
+    marginTop: 20,
   },
 });

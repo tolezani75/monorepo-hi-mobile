@@ -5,7 +5,7 @@ import { Styles } from "./styles";
 
 const Input = ({ borderBottomColor, borderBottomWidth, ...rest }) => {
   return (
-    <View style={Styles.container}>
+    <>
       <TextInput
         style={[
           Styles.input,
@@ -16,7 +16,7 @@ const Input = ({ borderBottomColor, borderBottomWidth, ...rest }) => {
         ]}
         {...rest}
       />
-    </View>
+    </>
   );
 };
 
