@@ -3,24 +3,67 @@ import AsyncStorage from "@react-native-community/async-storage";
 
 import { apiUatHiv1, apiHiv1 } from "../services/api";
 
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [data, setData] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [userToken, setUserToken] = useState({});
 
-  const signIn = useCallback(async (service, username, password) => {
-    const response = await apiUatHiv1.post(`/auth/login`, {
-      service: service,
-      username,
-      password,
-    });
+  useEffect(() => {
+    async function loadStorage() {
+      setLoading(true);
+      const token = await AsyncStorage.getItem("user_token");
+
+      if (token) {
+        setUserToken({ token });
+      }
+
+      setLoading(false);
+    }
+
+    loadStorage();
   }, []);
 
-  const signOut = useCallback(async () => {
-    await AsyncStorage.multiRemove(["@leromundo:token", "@leromundo:user"]);
+  const SignIn = useCallback(async ({ service, username, password }) => {
+    try {
+      const response = await apiHiv1.post(`/auth/login/`, {
+        service: service,
+        username,
+        password,
+      });
 
-    setData({});
+      const { token } = response.data;
+
+      await AsyncStorage.setItem("user_token", token);
+
+      setUserToken({ token });
+    } catch (error) {
+      console.log(error);
+    }
   }, []);
 
-  return <AuthContext.Provider value={{}}>{children}</AuthContext.Provider>;
+  const SignOut = useCallback(async () => {
+    await AsyncStorage.removeItem("user_token");
+
+    setUserToken({});
+  }, []);
+
+  const resetPassword = useCallback(async ({ service, email }) => {
+    try {
+      await apiHiv1.post(`/auth/reset/`, {
+        service,
+        account: email,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
+  return (
+    <AuthContext.Provider
+      value={{ SignOut, userToken, SignIn, resetPassword, loading }}
+    >
+      {children}
+    </AuthContext.Provider>
+  );
 };
