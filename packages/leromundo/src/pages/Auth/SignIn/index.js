@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useContext, useCallback} from 'react';
 import {
   Text,
   ScrollView,
@@ -10,8 +10,12 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 
+import {Form} from '@unform/mobile';
+import {service} from '../../../services/constant';
+
 import {useNavigation} from '@react-navigation/native';
 
+import {AuthContext} from '@monorepo-hi-mobile/shared/context/AuthContext';
 import styles, {IMAGE_HEIGHT, IMAGE_HEIGHT_SMALL} from './styles';
 import logo from '../../../assets/images/logo.png';
 
@@ -21,7 +25,10 @@ import Button from '@monorepo-hi-mobile/shared/components/Button';
 import colors from '../../../styles/colors';
 
 const SignIn = () => {
+  const formRef = useRef(null);
   const navigation = useNavigation();
+
+  const {SignIn} = useContext(AuthContext);
 
   const passwordInputRef = useRef();
 
@@ -52,6 +59,14 @@ const SignIn = () => {
       toValue: IMAGE_HEIGHT,
     }).start();
   };
+
+  const handleSubmit = useCallback((data) => {
+    try {
+      SignIn({service, username: data.email, password: data.password});
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
 
   useEffect(() => {
     function loadKeyboard() {
@@ -92,30 +107,36 @@ const SignIn = () => {
           <ScrollView contentContainerStyle={{flex: 1}}>
             <Text>Login</Text>
 
-            <Input
-              keyboardType="email-address"
-              autoCaptalize="none"
-              autoCorrect={false}
-              returnKeyType="next"
-              borderBottomWidth={1}
-              placeholder="Email"
-              onSubmitEdditing={() => passwordInputRef.current?.focus()}
-            />
+            <Form ref={formRef} onSubmit={handleSubmit}>
+              <Input
+                autoCapitalize="none"
+                autoCorrect={false}
+                name="email"
+                keyboardType="email-address"
+                returnKeyType="next"
+                borderBottomWidth={1}
+                placeholder="Email"
+                onSubmitEdditing={() => passwordInputRef.current?.focus()}
+              />
 
-            <Input
-              ref={passwordInputRef}
-              secureTextEntry
-              returnKeyType="send"
-              borderBottomWidth={1}
-              placeholder="Senha"
-            />
+              <Input
+                autoCapitalize="none"
+                autoCorrect={false}
+                name="password"
+                ref={passwordInputRef}
+                secureTextEntry
+                returnKeyType="send"
+                borderBottomWidth={1}
+                placeholder="Senha"
+              />
 
-            <Button
-              background={`${colors.actionColor}`}
-              title="Entrar"
-              colorTitle={`${colors.primaryColor}`}
-              onPress={() => {}}
-            />
+              <Button
+                background={`${colors.actionColor}`}
+                title="Entrar"
+                colorTitle={`${colors.primaryColor}`}
+                onPress={() => formRef.current?.submitForm()}
+              />
+            </Form>
 
             <Button
               onPress={() => navigation.navigate('ForgotPassword')}
