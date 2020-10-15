@@ -7,6 +7,6 @@ export const Styles = StyleSheet.create({
     height: 50,
     backgroundColor: "#fff",
     marginVertical: 5,
-    width: InputWidth - 30,
+    width: InputWidth,
   },
 });

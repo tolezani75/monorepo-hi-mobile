@@ -5,10 +5,17 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Dashboard from '../pages/Home';
-import Profile from '../pages/User';
 import Offline from '../pages/Offline';
 import SearchCourses from '../pages/SearchCourses';
 import AllCourses from '../pages/AllCourses';
+
+// menu stack
+import Menu from '../pages/Menu';
+import EditProfile from '../pages/Menu/EditProfile';
+import Profile from '../pages/Menu/Profile';
+import Help from '../pages/Menu/Help';
+import MyCourses from '../pages/Menu/MyCourses';
+import About from '../pages/Menu/About';
 
 import colors from '../styles/colors';
 
@@ -26,9 +33,14 @@ const HomeStackScreen = () => (
   </App.Navigator>
 );
 
-const ProfileStackScreen = () => (
+const MenuStackScreen = () => (
   <App.Navigator>
-    <App.Screen options={options} name="Menu" component={Profile} />
+    <App.Screen options={options} name="Menu" component={Menu} />
+    <App.Screen options={options} name="Profile" component={Profile} />
+    <App.Screen options={options} name="EditProfile" component={EditProfile} />
+    <App.Screen options={options} name="Help" component={Help} />
+    <App.Screen options={options} name="MyCourses" component={MyCourses} />
+    <App.Screen options={options} name="About" component={About} />
   </App.Navigator>
 );
 
@@ -124,7 +136,7 @@ const AppRoutes = () => (
         ),
       }}
       name="Menu"
-      component={ProfileStackScreen}
+      component={MenuStackScreen}
     />
   </Tab.Navigator>
 );
