@@ -1,10 +1,8 @@
 import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome";
+import Icon from "react-native-vector-icons/FontAwesome5";
 
 import { Styles } from "./styles";
-
-Icon.loadFont();
 
 const CustomArrowBack = ({ onPress }) => {
   return (
