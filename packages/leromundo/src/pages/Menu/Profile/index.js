@@ -1,21 +1,21 @@
 import React from 'react';
-import {Text, View, Image, ScrollView, Platform} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import { Text, View, Image, ScrollView, Platform } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 import CustomArrowBack from '@monorepo-hi-mobile/shared/components/CustomArrowBack';
 import Button from '@monorepo-hi-mobile/shared/components/Button';
 
-import {Styles} from './styles';
+import { Styles } from './styles';
 import avatar from '../../../assets/images/picture.jpeg';
-import {TextInput} from 'react-native-gesture-handler';
+import { TextInput } from 'react-native-gesture-handler';
 import colors from '../../../styles/colors';
 
 const Profile = () => {
   const navigation = useNavigation();
 
   return (
-    <ScrollView style={{flex: 1}} showsVerticalScrollIndicator={false}>
+    <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
       <View style={Styles.container}>
         <View style={Styles.header}>
           {Platform.OS === 'ios' && (
@@ -33,23 +33,25 @@ const Profile = () => {
 
         <View style={Styles.containerCountCourses}>
           <View style={Styles.countCourses}>
-            <Text style={{color: colors.defaultTextColor, fontSize: 24}}>
+            <Text style={{ color: colors.defaultTextColor, fontSize: 24 }}>
               3
             </Text>
-            <Text style={{color: colors.defaultTextColor}}>CONCLUÍDOS</Text>
+            <Text style={{ color: colors.defaultTextColor }}>CONCLUÍDOS</Text>
           </View>
 
           <View style={Styles.countCourses}>
-            <Text style={{color: colors.defaultTextColor, fontSize: 24}}>
+            <Text style={{ color: colors.defaultTextColor, fontSize: 24 }}>
               8
             </Text>
-            <Text style={{color: colors.defaultTextColor}}>EM ANDAMENTO</Text>
+            <Text style={{ color: colors.defaultTextColor }}>EM ANDAMENTO</Text>
           </View>
         </View>
 
         <View style={Styles.containerContentUser}>
           <View style={Styles.contentUser}>
-            <Text style={{color: colors.defaultLabelColor}}>NOME COMPLETO</Text>
+            <Text style={{ color: colors.defaultLabelColor }}>
+              NOME COMPLETO
+            </Text>
             <TextInput
               style={Styles.input}
               editable={false}
@@ -60,7 +62,7 @@ const Profile = () => {
 
           <View style={Styles.contentUser}>
             <View style={Styles.contentUser}>
-              <Text style={{color: colors.defaultLabelColor}}>E-MAIL</Text>
+              <Text style={{ color: colors.defaultLabelColor }}>E-MAIL</Text>
               <TextInput
                 style={[Styles.input]}
                 editable={false}
@@ -76,7 +78,7 @@ const Profile = () => {
                 marginTop: 7,
               }}>
               <Icon name="info-circle" size={20} />
-              <Text style={{color: colors.defaultLabelColor, marginLeft: 7}}>
+              <Text style={{ color: colors.defaultLabelColor, marginLeft: 7 }}>
                 e-mail não verificado
               </Text>
             </View>

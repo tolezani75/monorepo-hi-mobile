@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {createNativeStackNavigator} from 'react-native-screens/native-stack';
+import { createNativeStackNavigator } from 'react-native-screens/native-stack';
 
 import SignIn from '../pages/Auth/SignIn';
 import SignUp from '../pages/Auth/SignUp';
@@ -13,11 +13,12 @@ const Auth = createNativeStackNavigator();
 
 const options = {
   headerShown: false,
-  contentStyle: {backgroundColor: colors.primaryColor},
+  contentStyle: { backgroundColor: colors.backgroundDefault },
 };
 
 const AuthRoutes = () => (
   <Auth.Navigator initialRouteName="SignIn">
+    <Auth.Screen options={options} name="SignIn" component={SignIn} />
     <Auth.Screen options={options} name="SignUp" component={SignUp} />
 
     <Auth.Screen options={options} name="Welcome" component={Welcome} />
@@ -26,7 +27,6 @@ const AuthRoutes = () => (
       name="ForgotPassword"
       component={ForgotPassword}
     />
-    <Auth.Screen options={options} name="SignIn" component={SignIn} />
   </Auth.Navigator>
 );
 

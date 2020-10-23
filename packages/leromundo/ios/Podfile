@@ -9,6 +9,9 @@ target 'leromundo' do
   use_react_native!(:path => "../../../node_modules/react-native")
 
   pod 'RNVectorIcons', :path => '../../../node_modules/react-native-vector-icons'
+  pod 'RNScreens', :path => '../../../node_modules/react-native-screens'
+  pod 'react-native-safe-area-context', :path => '../../../node_modules/react-native-safe-area-context'
+
 
 
   target 'leromundoTests' do

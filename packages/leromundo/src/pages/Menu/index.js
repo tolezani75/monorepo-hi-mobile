@@ -1,21 +1,21 @@
-import React, {useContext} from 'react';
-import {View, Text, Button, Image, TouchableOpacity} from 'react-native';
+import React, { useContext } from 'react';
+import { View, Text, Button, Image, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-import {AuthContext} from '@monorepo-hi-mobile/shared/context/AuthContext';
+import { AuthContext } from '@monorepo-hi-mobile/shared/context/AuthContext';
 import avatar from '../../assets/images/picture.jpeg';
 
-import {Styles} from './styles';
-import {ScrollView} from 'react-native-gesture-handler';
-import {useNavigation} from '@react-navigation/native';
+import { Styles } from './styles';
+import { ScrollView } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
 
 const Profile = () => {
-  const {SignOut} = useContext(AuthContext);
+  const { SignOut } = useContext(AuthContext);
 
   const navigation = useNavigation();
 
   return (
-    <ScrollView showsVerticalScrollIndicator={false} style={{flex: 1}}>
+    <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 }}>
       <View style={Styles.container}>
         <View style={Styles.header}>
           <Image style={Styles.avatar} source={avatar} />
@@ -55,12 +55,14 @@ const Profile = () => {
             <Text style={Styles.textContent}>RESTAURAR COMPRA</Text>
           </View>
 
-          {/* <View style={Styles.content}>
-            <TouchableOpacity style={Styles.button}>
-              <Icon name="bell" size={23} />
+          <View style={Styles.content}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Translate')}
+              style={Styles.button}>
+              <Icon name="language" size={23} />
             </TouchableOpacity>
-            <Text style={Styles.textContent}>NOTIFICAÇÕES</Text>
-          </View> */}
+            <Text style={Styles.textContent}>IDIOMAS</Text>
+          </View>
 
           <View style={Styles.content}>
             <TouchableOpacity

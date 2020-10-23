@@ -1,8 +1,8 @@
 import React from 'react';
 
-import {createNativeStackNavigator} from 'react-native-screens/native-stack';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { createNativeStackNavigator } from 'react-native-screens/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 import Dashboard from '../pages/Home';
 import Offline from '../pages/Offline';
@@ -16,6 +16,7 @@ import Profile from '../pages/Menu/Profile';
 import Help from '../pages/Menu/Help';
 import MyCourses from '../pages/Menu/MyCourses';
 import About from '../pages/Menu/About';
+import Translate from '../pages/Menu/Translate';
 
 import colors from '../styles/colors';
 
@@ -24,7 +25,7 @@ const Tab = createBottomTabNavigator();
 
 const options = {
   headerShown: false,
-  contentStyle: {backgroundColor: colors.primaryColor},
+  contentStyle: { backgroundColor: colors.primaryColor },
 };
 
 const HomeStackScreen = () => (
@@ -34,13 +35,14 @@ const HomeStackScreen = () => (
 );
 
 const MenuStackScreen = () => (
-  <App.Navigator>
+  <App.Navigator initialRouteName="Menu">
     <App.Screen options={options} name="Menu" component={Menu} />
     <App.Screen options={options} name="Profile" component={Profile} />
     <App.Screen options={options} name="EditProfile" component={EditProfile} />
     <App.Screen options={options} name="Help" component={Help} />
     <App.Screen options={options} name="MyCourses" component={MyCourses} />
     <App.Screen options={options} name="About" component={About} />
+    <App.Screen options={options} name="Translate" component={Translate} />
   </App.Navigator>
 );
 
@@ -64,6 +66,7 @@ const AllCoursesStackScreen = () => (
 
 const AppRoutes = () => (
   <Tab.Navigator
+    initialRouteName="Offline"
     tabBarOptions={{
       activeTintColor: colors.activeMenuColor,
       inactiveTintColor: colors.accountIconColor,
@@ -71,11 +74,11 @@ const AppRoutes = () => (
     <Tab.Screen
       options={{
         tabBarLabel: 'Home',
-        tabBarIcon: ({}) => (
-          <MaterialCommunityIcons
+        tabBarIcon: ({ focused }) => (
+          <FontAwesome5
             name="home"
-            color={colors.activeMenuColor}
-            size={26}
+            color={focused ? colors.activeMenuColor : colors.accountIconColor}
+            size={20}
           />
         ),
       }}
@@ -85,11 +88,11 @@ const AppRoutes = () => (
     <Tab.Screen
       options={{
         tabBarLabel: 'Explorar',
-        tabBarIcon: ({}) => (
-          <MaterialCommunityIcons
-            name="card-search-outline"
-            color={colors.activeMenuColor}
-            size={26}
+        tabBarIcon: ({ focused }) => (
+          <FontAwesome5
+            name="search"
+            color={focused ? colors.activeMenuColor : colors.accountIconColor}
+            size={20}
           />
         ),
       }}
@@ -99,11 +102,11 @@ const AppRoutes = () => (
     <Tab.Screen
       options={{
         tabBarLabel: 'Conteúdos',
-        tabBarIcon: ({}) => (
-          <MaterialCommunityIcons
+        tabBarIcon: ({ focused }) => (
+          <FontAwesome5
             name="play-circle"
-            color={colors.activeMenuColor}
-            size={26}
+            color={focused ? colors.activeMenuColor : colors.accountIconColor}
+            size={20}
           />
         ),
       }}
@@ -113,11 +116,11 @@ const AppRoutes = () => (
     <Tab.Screen
       options={{
         tabBarLabel: 'Offline',
-        tabBarIcon: ({color, size}) => (
-          <MaterialCommunityIcons
-            name="cloud-download"
-            color={color}
-            size={size}
+        tabBarIcon: ({ focused }) => (
+          <FontAwesome5
+            name="cloud-download-alt"
+            color={focused ? colors.activeMenuColor : colors.accountIconColor}
+            size={20}
           />
         ),
       }}
@@ -127,11 +130,11 @@ const AppRoutes = () => (
     <Tab.Screen
       options={{
         tabBarLabel: 'Menu',
-        tabBarIcon: () => (
-          <MaterialCommunityIcons
-            name="menu"
-            color={colors.activeMenuColor}
-            size={26}
+        tabBarIcon: ({ focused }) => (
+          <FontAwesome5
+            name="align-justify"
+            color={focused ? colors.activeMenuColor : colors.accountIconColor}
+            size={20}
           />
         ),
       }}

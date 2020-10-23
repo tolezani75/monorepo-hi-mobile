@@ -1,10 +1,10 @@
 import React from 'react';
-import {View, ImageBackground, Platform, SafeAreaView} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import { View, ImageBackground, Platform, SafeAreaView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import Button from '@monorepo-hi-mobile/shared/components/Button';
 
-import {Styles} from './styles';
+import { Styles } from './styles';
 
 import colors from '../../../styles/colors';
 
@@ -17,7 +17,7 @@ const Welcome = () => {
       <View
         style={[
           Styles.container,
-          {marginBottom: Platform.OS === 'android' && 20},
+          { marginBottom: Platform.OS === 'android' && 20 },
         ]}>
         <Button
           background={`${colors.actionColor}`}

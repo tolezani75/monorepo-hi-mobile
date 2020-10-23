@@ -1,0 +1,36 @@
+[
+  {
+    "question": "O QUE É A PLATAFORMA LER O MUNDO?",
+    "answer": "O Ler o Mundo é uma plataforma mobile de aprendizado desenvolvida para preparar mães, pais e professores para enfrentar, de maneira leve, interativa e inovadora, a educação das crianças. A plataforma Ler o Mundo oferece cursos, trilhas de aprendizagem e conteúdos para apoiar os adultos na aplicação prática de conceitos trazido na teoria. O usuário terá acesso a trilhas de aprendizagem gratuitas e cursos comprados separadamente, conforme o seu interesse."
+  },
+  {
+    "question": "PARA QUEM SÃO OS CURSOS E CONTEÚDOS DA PLATAFORMA LER O MUNDO?",
+    "answer": `Os conteúdos (cursos e trilhas de aprendizagem) podem ser para as famílias ou para professores e educadores de maneira geral. Alguns conteúdos, como as histórias, são para as crianças, mas estão na plataforma com o intuito de apoiar os adultos na aplicação prática (funcionam como material prático).`
+  },
+  {
+    "question": "COMO FAÇO PARA ADQUIRIR OS CURSOS E TRILHAS DE APRENDIZAGEM?",
+    "answer": `Para ser usuário da plataforma, você pode baixar o aplicativo na App Store ou no Google Play e fazer a assinatura dentro do aplicativo. Também é possível comprar os cursos pela versão web, com cartão de crédito.`
+  },
+  {
+    "question": "QUANTO CUSTAM OS CURSOS?",
+    "answer": `O usuário que comprar os cursos da Plataforma Ler o Mundo pagará os valores seguindo as tabelas abaixo.`
+  },
+  {
+    "question": "ONDE POSSO ASSISTIR AOS CURSOS E CONTEÚDOS DA PLATAFORMA LER O MUNDO?",
+    "answer": `Você tem várias opções para acessar a plataforma: pelo computador, tablet ou smartphone.`
+  },
+  {
+    "question": "QUAIS DISPOSITIVOS SÃO COMPATÍVEIS COM A PLATAFORMA LER O MUNDO?",
+    "answer": `O aplicativo roda nas seguintes versões de Android e iOS:
+
+    . Android: 4.4.2 ou superior
+
+    . iOS: 9.0 ou superior
+
+    Se o seu aparelho possui uma versão anterior de um desses sistemas operacionais, saiba que ele pode não funcionar corretamente. Nesse caso, a nossa dica é deixar o seu dispositivo sempre atualizado. Consulte o fabricante para saber se o mesmo possui atualização disponível de acordo com o modelo.`
+  },
+  {
+    "question": "A PLATAFORMA LER O MUNDO EMITE CERTIFICADOS DE CONCLUSÃO DE CURSO?",
+    "answer": `Sim, há certificados para todos os cursos. Você pode emitir o certificado digital pelo próprio aplicativo para todos os cursos concluídos.`
+  }
+]

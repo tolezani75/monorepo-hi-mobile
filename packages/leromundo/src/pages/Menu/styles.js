@@ -1,10 +1,12 @@
-import {Dimensions, StyleSheet} from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
+import { isIphoneX } from 'react-native-iphone-x-helper';
 
 const DeviceWidth = Dimensions.get('window').width;
 
 export const Styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: isIphoneX() ? 40 : 17,
   },
 
   header: {
