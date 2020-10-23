@@ -1,143 +1,118 @@
-import React, {useEffect, useRef, useContext, useCallback} from 'react';
+import React, { useState, useRef, useContext, useCallback } from 'react';
 import {
   Text,
   ScrollView,
-  Animated,
-  Keyboard,
   KeyboardAvoidingView,
   Platform,
-  SafeAreaView,
-  TouchableWithoutFeedback,
+  Image,
+  View,
+  TouchableOpacity,
 } from 'react-native';
-
-import {Form} from '@unform/mobile';
-import {service} from '../../../services/constant';
-
-import {useNavigation} from '@react-navigation/native';
-
-import {AuthContext} from '@monorepo-hi-mobile/shared/context/AuthContext';
-import styles, {IMAGE_HEIGHT, IMAGE_HEIGHT_SMALL} from './styles';
-import logo from '../../../assets/images/logo.png';
+import { Form } from '@unform/mobile';
+import { useNavigation } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import * as Yup from 'yup';
 
 import Input from '@monorepo-hi-mobile/shared/components/Input';
 import Button from '@monorepo-hi-mobile/shared/components/Button';
+import { AuthContext } from '@monorepo-hi-mobile/shared/context/AuthContext';
+import { Schema } from '@monorepo-hi-mobile/shared/utils/validation/fields/AuthValidationFields';
+import { GetValidationErrors } from '@monorepo-hi-mobile/shared/utils/validation/fields/GetValidationErrors';
 
+import { service } from '../../../services/constant';
+import { Styles } from './styles';
+import logo from '../../../assets/images/logo.png';
 import colors from '../../../styles/colors';
 
 const SignIn = () => {
-  const formRef = useRef(null);
-  const navigation = useNavigation();
-
-  const {SignIn} = useContext(AuthContext);
-
+  const formRef = useRef();
   const passwordInputRef = useRef();
+  const navigation = useNavigation();
+  const [hidePassword, setHidePassword] = useState(true);
 
-  const imageHeight = new Animated.Value(IMAGE_HEIGHT);
+  const { SignIn } = useContext(AuthContext);
 
-  const keyboardWillShow = (event) => {
-    Animated.timing(imageHeight, {
-      duration: event.duration,
-      toValue: IMAGE_HEIGHT_SMALL,
-    }).start();
-  };
-
-  const keyboardWillHide = (event) => {
-    Animated.timing(imageHeight, {
-      duration: event.duration,
-      toValue: IMAGE_HEIGHT,
-    }).start();
-  };
-
-  const keyboardDidShow = (event) => {
-    Animated.timing(imageHeight, {
-      toValue: IMAGE_HEIGHT_SMALL,
-    }).start();
-  };
-
-  const keyboardDidHide = (event) => {
-    Animated.timing(imageHeight, {
-      toValue: IMAGE_HEIGHT,
-    }).start();
-  };
-
-  const handleSubmit = useCallback((data) => {
+  const handleSubmit = useCallback(async (data) => {
     try {
-      SignIn({service, username: data.email, password: data.password});
+      formRef.current?.setErrors({});
+      await Schema.validate(data, { abortEarly: false });
+
+      SignIn({
+        service: service,
+        username: data.email,
+        password: data.password,
+      });
     } catch (error) {
       console.log(error);
+      if (error instanceof Yup.ValidationError) {
+        const errors = GetValidationErrors(error);
+        //formRef.current?.setErrors(errors);
+      }
     }
   }, []);
 
-  useEffect(() => {
-    function loadKeyboard() {
-      if (Platform.OS == 'ios') {
-        keyboardWillShowSub = Keyboard.addListener(
-          'keyboardWillShow',
-          keyboardWillShow,
-        );
-        keyboardWillHideSub = Keyboard.addListener(
-          'keyboardWillHide',
-          keyboardWillHide,
-        );
-      } else {
-        keyboardWillShowSub = Keyboard.addListener(
-          'keyboardDidShow',
-          keyboardDidShow,
-        );
-        keyboardWillHideSub = Keyboard.addListener(
-          'keyboardDidHide',
-          keyboardDidHide,
-        );
-      }
-    }
-
-    loadKeyboard();
-  }, [keyboardWillShow, keyboardWillHide, keyboardDidShow, keyboardDidHide]);
-
   return (
-    <>
-      <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-        <KeyboardAvoidingView
-          style={[styles.container]}
-          behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
-          <Animated.Image
-            source={logo}
-            style={[styles.logo, {height: imageHeight}]}
-          />
-          <ScrollView contentContainerStyle={{flex: 1}}>
-            <Text>Login</Text>
+    <KeyboardAvoidingView
+      enabled
+      style={{ flex: 1 }}
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+      <ScrollView
+        keyboardShouldPersistTaps="handled"
+        contentContainerStyle={{ flex: 1 }}>
+        <View style={Styles.container}>
+          <View style={Styles.containerContent}>
+            <View style={Styles.containerLogo}>
+              <Image source={logo} style={Styles.logo} />
+            </View>
 
-            <Form ref={formRef} onSubmit={handleSubmit}>
+            <View>
+              <Text style={[Styles.title]}>LOGIN</Text>
+            </View>
+          </View>
+
+          <Form ref={formRef} onSubmit={handleSubmit}>
+            <Text style={Styles.label}>E-MAIL</Text>
+            <View style={Styles.passwordContainer}>
               <Input
+                name="email"
+                style={Styles.inputPassword}
                 autoCapitalize="none"
                 autoCorrect={false}
-                name="email"
                 keyboardType="email-address"
                 returnKeyType="next"
-                borderBottomWidth={1}
-                placeholder="Email"
+                placeholder="email@example.com"
                 onSubmitEdditing={() => passwordInputRef.current?.focus()}
               />
+            </View>
 
-              <Input
-                autoCapitalize="none"
-                autoCorrect={false}
-                name="password"
-                ref={passwordInputRef}
-                secureTextEntry
-                returnKeyType="send"
-                borderBottomWidth={1}
-                placeholder="Senha"
-              />
+            <View>
+              <Text style={[Styles.label, { marginTop: 20 }]}>SENHA</Text>
+              <View style={[Styles.passwordContainer, { marginBottom: 10 }]}>
+                <Input
+                  placeholderTextColor={colors.defaultLabelColor}
+                  name="name"
+                  placeholder="********"
+                  style={Styles.inputPassword}
+                  secureTextEntry={hidePassword}
+                  returnKeyType="next"
+                />
 
-              <Button
-                background={`${colors.actionColor}`}
-                title="Entrar"
-                colorTitle={`${colors.primaryColor}`}
-                onPress={() => formRef.current?.submitForm()}
-              />
-            </Form>
+                <TouchableOpacity
+                  onPress={() => setHidePassword(!hidePassword)}>
+                  <Icon name={hidePassword ? 'eye-off' : 'eye'} size={23} />
+                </TouchableOpacity>
+              </View>
+            </View>
 
+            <Button
+              background={`${colors.defaultButtonColor}`}
+              title="Entrar"
+              colorTitle={`${colors.primaryColor}`}
+              onPress={() => formRef.current?.submitForm()}
+            />
+          </Form>
+
+          <View style={Styles.footer}>
             <Button
               onPress={() => navigation.navigate('ForgotPassword')}
               title="Esqueci minha senha"
@@ -148,11 +123,10 @@ const SignIn = () => {
               title="Criar Conta"
               onPress={() => navigation.navigate('SignUp')}
             />
-          </ScrollView>
-        </KeyboardAvoidingView>
-      </TouchableWithoutFeedback>
-      <SafeAreaView />
-    </>
+          </View>
+        </View>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 };
 

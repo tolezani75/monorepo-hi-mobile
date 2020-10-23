@@ -33,13 +33,6 @@ const Input = ({ name, borderBottomColor, borderBottomWidth, ...rest }) => {
 
   return (
     <TextInput
-      style={[
-        Styles.input,
-        {
-          borderBottomColor,
-          borderBottomWidth,
-        },
-      ]}
       ref={inputRef}
       defaultValue={defaultValue}
       onChangeText={(value) => {

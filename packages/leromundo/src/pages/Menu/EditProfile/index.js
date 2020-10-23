@@ -1,18 +1,15 @@
-import React, {useRef} from 'react';
+import React, { useRef } from 'react';
 import {
   Text,
   View,
-  Image,
   KeyboardAvoidingView,
-  Keyboard,
   ScrollView,
   Platform,
   TouchableOpacity,
-  PLatform,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import {useNavigation} from '@react-navigation/native';
-import {Form} from '@unform/mobile';
+import { useNavigation } from '@react-navigation/native';
+import { Form } from '@unform/mobile';
 
 import CustomArrowBack from '@monorepo-hi-mobile/shared/components/CustomArrowBack';
 import Button from '@monorepo-hi-mobile/shared/components/Button';
@@ -20,7 +17,7 @@ import Input from '@monorepo-hi-mobile/shared/components/Input';
 
 import colors from '../../../styles/colors';
 
-import {Styles} from './styles';
+import { Styles } from './styles';
 
 const EditProfile = () => {
   const navigation = useNavigation();
@@ -28,9 +25,9 @@ const EditProfile = () => {
   const formRef = useRef();
 
   return (
-    <ScrollView style={{flex: 1}} showsVerticalScrollIndicator={false}>
+    <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
       <KeyboardAvoidingView
-        style={{flex: 1}}
+        style={{ flex: 1 }}
         behavior={Platform.OS === 'ios' ? 'position' : undefined}
         enabled>
         <View style={Styles.container}>
